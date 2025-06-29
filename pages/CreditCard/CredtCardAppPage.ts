@@ -1,7 +1,7 @@
 import { expect, Locator, Page, Selectors } from "@playwright/test";
 
 
-export class CredtCardApp
+export class CredtCardAppPage
 {
     page:Page 
     private readonly nameTextBox:Locator
@@ -52,8 +52,9 @@ export class CredtCardApp
     }
 
     async findcreditCardTrackingnumber(){
-        CredtCardApp.creditTrackingNumber=await this.trackingNoText.textContent()??''
-         expect(CredtCardApp.creditTrackingNumber).not.toBeNull()      
+        await this.page.waitForLoadState("networkidle")
+        CredtCardAppPage.creditTrackingNumber=await this.trackingNoText.textContent()??''
+         expect(CredtCardAppPage.creditTrackingNumber).not.toBeNull()      
    
 
     }

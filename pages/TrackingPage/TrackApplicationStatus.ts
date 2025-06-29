@@ -1,8 +1,8 @@
 
 
 import { expect, Locator, Page } from "@playwright/test";
-import { CredtCardApp } from "../CreditCard/CredtCardApp";
-import { DebitCardApp } from "../DebitCard/DebitCardApp";
+import { CredtCardAppPage } from "../CreditCard/CredtCardAppPage";
+import { DebitCardAppPage } from "../DebitCard/DebitCardAppPage";
 
 
 export class TrackingApplicationStatus
@@ -24,7 +24,7 @@ export class TrackingApplicationStatus
     }
    async trackYourCreditCardApplicationStatus(){
 
-    await this.trackingNoTextBox.fill(CredtCardApp.creditTrackingNumber)
+    await this.trackingNoTextBox.fill(CredtCardAppPage.creditTrackingNumber)
     await this.checkStatusClickButton.click();
     
 
@@ -32,20 +32,20 @@ export class TrackingApplicationStatus
 
    async verifyCreditCardApplicationStatus(){
     TrackingApplicationStatus.trackingStatus =await this.checkTrackingNumber.textContent()??''
-    expect(TrackingApplicationStatus.trackingStatus).toBe(`Status for ${CredtCardApp.creditTrackingNumber}: In Progress`)
+    expect(TrackingApplicationStatus.trackingStatus).toBe(`Status for ${CredtCardAppPage.creditTrackingNumber}: In Progress`)
 
 
    }
    async trackYourDebitCardApplicationStatus(){
 
-    await this.trackingNoTextBox.fill(DebitCardApp.debitCrdTrackingNumber)
+    await this.trackingNoTextBox.fill(DebitCardAppPage.debitCrdTrackingNumber)
     await this.checkStatusClickButton.click();
 
    }
 
    async verifyDebitCardApplicationStatus(){
     TrackingApplicationStatus.trackingStatus =await this.checkTrackingNumber.textContent()??''
-    expect(TrackingApplicationStatus.trackingStatus).toBe(`Status for ${DebitCardApp.debitCrdTrackingNumber}: In Progress`)
+    expect(TrackingApplicationStatus.trackingStatus).toBe(`Status for ${DebitCardAppPage.debitCrdTrackingNumber}: In Progress`)
 
    }
 

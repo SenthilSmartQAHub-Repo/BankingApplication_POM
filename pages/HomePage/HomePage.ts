@@ -7,6 +7,8 @@ export class HomePage
     private creditCardClickButton:Locator
     private debitCardClickButton:Locator
     private trackStatusClickButton:Locator
+    private homePagebutton:Locator
+    private readonly goBackButton:Locator
     
     constructor(page:Page)
     {
@@ -14,11 +16,11 @@ export class HomePage
      this.creditCardClickButton= page.locator("//a[contains(text(),'Credit Card Application')]")
      this.debitCardClickButton= page.locator("//a[contains(text(),'Debit Card Application')]")
      this.trackStatusClickButton= page.locator("//a[contains(text(),'Track Application Status')]")
+     this.goBackButton=page.locator("//a[@class='back-button']")
+     this.homePagebutton=page.locator("//a[@class='home-button']")
 
 
     }
-
-
 
     async navigateToCreditCardApplicationForm()
     {
@@ -37,11 +39,10 @@ export class HomePage
         await this.trackStatusClickButton.click()
     }
 
-    async navigateTohomePage(){
+    async navigateToHomePage(){
          
+        await this.homePagebutton.click();
 
-      await this.page.goto("https://playwrightautomationtesting.blogspot.com/2025/06/online-banking.html")
 
-
-        }
+  }
 }

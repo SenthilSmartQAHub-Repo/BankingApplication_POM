@@ -17,15 +17,15 @@ export class LoginPage
 
 
     }
-    async login()
+    async login(username:string,pwd:string)
     {
 
-        await this.userNameTextbox.fill("demo")
+        await this.userNameTextbox.fill(username)
 
-        await this.passwordTextbox.fill("demo")
+        await this.passwordTextbox.fill(pwd)
        
         await this.loginButton.click()
 
-        await expect(this.page).toHaveURL("https://playwrightautomationtesting.blogspot.com/2025/06/online-banking.html")
+        await expect(this.page).toHaveURL("https://playwrightautomationtesting.blogspot.com/2025/06/banking-application.html")
     }
 }
