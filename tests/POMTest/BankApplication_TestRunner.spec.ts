@@ -5,15 +5,24 @@ import { CredtCardAppPage } from "../../pages/CreditCard/CredtCardAppPage";
 import { TrackingApplicationStatus } from "../../pages/TrackingPage/TrackApplicationStatus";
 import { DebitCardAppPage } from "../../pages/DebitCard/DebitCardAppPage";
 import { CommonPlaywrightLib } from "../../Utils/CommonPlaywrightLib";
+import dotenv from 'dotenv'
+
+
+dotenv.config({path:'Urls/.env.sit'})
+
+test.beforeEach("login",async({page})=>
+{
+ const loginPage=new LoginPage(page);
+   await page.goto(process.env.siturl as string)
+   await loginPage.login("SenthilSmartQAHub ","demo")
+})
+
 
 
 test('Apply credit Card',async({page})=>{
 
-   const loginPage=new LoginPage(page);
    const homePage=new HomePage(page);
    const credtCardApp=new CredtCardAppPage(page)
-   await page.goto("https://playwrightautomationtesting.blogspot.com/2025/06/banking-application.html")
-   await loginPage.login("SenthilSmartQAHub ","demo")
    await homePage.navigateToCreditCardApplicationForm()
    await credtCardApp.fillCreditCardApplication();
    await page.waitForTimeout(10000)
@@ -30,13 +39,8 @@ test('Apply credit Card',async({page})=>{
 
 })
 test('Apply Debit Card',async({page})=>{
-
-    const loginPage=new LoginPage(page);
     const homePage=new HomePage(page);
     const debitCardApp=new DebitCardAppPage(page)
-
-    await page.goto("https://playwrightautomationtesting.blogspot.com/2025/06/banking-application.html")
-    await loginPage.login("SenthilSmartQAHub ","demo")
     await homePage.navigateToDebicreditCardApplicationForm()
     await debitCardApp.fillDebitCardAppForm();
     await debitCardApp.findDebitCardTrackingnumber()
