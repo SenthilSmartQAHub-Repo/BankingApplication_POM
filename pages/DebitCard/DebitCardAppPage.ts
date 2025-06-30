@@ -35,10 +35,9 @@ export class DebitCardAppPage
     }
     async fillDebitCardAppForm()
     {
-    
         await this.fullnameTextBox.fill("Arun")
         await this.genderOptionBox.check()
-        await this.currentCityTextBox.fill("Chennai ")
+        //await this.currentCityTextBox.fill("Chennai ")
         await this.accountNoTextBox.fill("12345678901234")
         await this.cardTypeTextBox.selectOption('Platinum');
         this.page.on("dialog", async(dialogobj)=>
@@ -50,8 +49,7 @@ export class DebitCardAppPage
         await this.applyforDebitClickButton.click();
         const successMessage=await this.successMessage.textContent();
         expect(successMessage).toBe("✅ Your debit card application has been submitted successfully!")
-        
-
+    
     }
 
     async findDebitCardTrackingnumber(){

@@ -1,9 +1,12 @@
-import { Page } from "@playwright/test";
+import { Locator, Page } from "@playwright/test";
 import {parse} from 'csv-parse/sync'
 import fs from 'fs'
 
 export class CommonPlaywrightLib
 {
+   static switchToWindow(arg0: number) {
+      throw new Error("Method not implemented.");
+   }
 
     page:Page;
 
@@ -54,11 +57,10 @@ return csvdata;
 
 }
 
-async selectByLabel(element:string,text:string)
+async selectByLabel(element:Locator,text:string)
 {
-    await this.page.selectOption(element,{label:'text'})
+await element.selectOption({label:text})
 }
-
 
 
 async storageState(storagePath:string)
