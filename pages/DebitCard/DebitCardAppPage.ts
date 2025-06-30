@@ -34,29 +34,30 @@ export class DebitCardAppPage
 
 
     }
-    async fillDebitCardAppForm()
-    {
-        await this.fullnameTextBox.fill("Arun")
-        await this.genderOptionBox.check()
-        await this.currentCityTextBox.fill("Chennai ")
-        await this.accountNoTextBox.fill("12345678901234")
-        await this.cardTypeTextBox.selectOption('Platinum');
-        // this.page.on("dialog", async(dialogobj)=>
-        //     {
-        //       await this.page.waitForTimeout(5000)
-        //      dialogobj.accept()
-        //     })
+   async fillDebitCardAppForm()
+{
+const commonLib=new CommonPlaywrightLib(this.page)
+const csvdata=await commonLib.readingValueFromCSV("testdata/DebitCard.csv")
+await this.fullnameTextBox.fill(csvdata[0].name)
+await this.genderOptionBox.check()
+await this.currentCityTextBox.fill(csvdata[0].city)
+await this.accountNoTextBox.fill(csvdata[0].accountnumber)
+await this.cardTypeTextBox.selectOption(csvdata[0].cardtype);
+// this.page.on("dialog", async(dialogobj)=>
+// {
+// await this.page.waitForTimeout(5000)
+// dialogobj.accept()
+// })
 
-     const commonlib= new CommonPlaywrightLib(this.page);
+const commonlib= new CommonPlaywrightLib(this.page);
 
-       await commonlib.acceptAlert("ok","confirm")
-        await this.confirmationCheckBox.click();
-        await this.applyforDebitClickButton.click();
-        const successMessage=await this.successMessage.textContent();
-        expect(successMessage).toBe("✅ Your debit card application has been submitted successfully!")
-    
-    }
+await commonlib.acceptAlert("ok","confirm")
+await this.confirmationCheckBox.click();
+await this.applyforDebitClickButton.click();
+const successMessage=await this.successMessage.textContent();
+expect(successMessage).toBe("✅ Your debit card application has been submitted successfully!")
 
+}
     async findDebitCardTrackingnumber(){
         DebitCardAppPage.debitCrdTrackingNumber=await this.debitCrdTrackingNumText.textContent()??''
          expect(DebitCardAppPage.debitCrdTrackingNumber).not.toBeNull()      
