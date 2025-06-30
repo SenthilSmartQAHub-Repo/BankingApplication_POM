@@ -4,9 +4,6 @@ import fs from 'fs'
 
 export class CommonPlaywrightLib
 {
-   static switchToWindow(arg0: number) {
-      throw new Error("Method not implemented.");
-   }
 
     page:Page;
 

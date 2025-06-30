@@ -1,5 +1,6 @@
 
 import { expect, Locator, Page, Selectors } from "@playwright/test";
+import { CommonPlaywrightLib } from "../../Utils/CommonPlaywrightLib";
 
 
 export class DebitCardAppPage
@@ -37,14 +38,18 @@ export class DebitCardAppPage
     {
         await this.fullnameTextBox.fill("Arun")
         await this.genderOptionBox.check()
-        //await this.currentCityTextBox.fill("Chennai ")
+        await this.currentCityTextBox.fill("Chennai ")
         await this.accountNoTextBox.fill("12345678901234")
         await this.cardTypeTextBox.selectOption('Platinum');
-        this.page.on("dialog", async(dialogobj)=>
-            {
-              await this.page.waitForTimeout(5000)
-             dialogobj.accept()
-            })
+        // this.page.on("dialog", async(dialogobj)=>
+        //     {
+        //       await this.page.waitForTimeout(5000)
+        //      dialogobj.accept()
+        //     })
+
+     const commonlib= new CommonPlaywrightLib(this.page);
+
+       await commonlib.acceptAlert("ok","confirm")
         await this.confirmationCheckBox.click();
         await this.applyforDebitClickButton.click();
         const successMessage=await this.successMessage.textContent();
