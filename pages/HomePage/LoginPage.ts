@@ -1,4 +1,5 @@
 import { expect, Locator, Page } from "@playwright/test";
+import { CommonPlaywrightLib } from "../../Utils/CommonPlaywrightLib";
 
 
 export class LoginPage
@@ -27,5 +28,9 @@ export class LoginPage
         await this.loginButton.click()
 
         await expect(this.page).toHaveURL("https://playwrightautomationtesting.blogspot.com/2025/06/banking-application.html")
+
+        
+
+
     }
 }

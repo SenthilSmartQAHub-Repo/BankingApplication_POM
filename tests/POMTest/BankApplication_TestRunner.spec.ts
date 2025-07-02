@@ -1,23 +1,9 @@
 import test from "@playwright/test";
-import { LoginPage } from "../../pages/HomePage/LoginPage";
 import { HomePage } from "../../pages/HomePage/HomePage";
 import { CredtCardAppPage } from "../../pages/CreditCard/CredtCardAppPage";
 import { TrackingApplicationStatus } from "../../pages/TrackingPage/TrackApplicationStatus";
 import { DebitCardAppPage } from "../../pages/DebitCard/DebitCardAppPage";
 import { CommonPlaywrightLib } from "../../Utils/CommonPlaywrightLib";
-import dotenv from 'dotenv'
-
-
-dotenv.config({path:'Urls/.env.sit'})
-
-test.beforeEach("login",async({page})=>
-{
- const loginPage=new LoginPage(page);
-   await page.goto(process.env.siturl as string)
-   await loginPage.login("SenthilSmartQAHub ","demo")
-})
-
-
 
 test('Apply credit Card',async({page})=>{
 
