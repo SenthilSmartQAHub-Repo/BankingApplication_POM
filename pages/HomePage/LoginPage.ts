@@ -29,8 +29,7 @@ export class LoginPage
 
         await expect(this.page).toHaveURL("https://playwrightautomationtesting.blogspot.com/2025/06/banking-application.html")
 
-        
-
+    
 
     }
 }

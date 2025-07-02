@@ -27,8 +27,12 @@ test("login to online banking",async({page})=>
         }
 
     }
-   const commonlib1=new CommonPlaywrightLib(page)
-    await commonlib1.storageState('creds/logincredential.json')
+
+
+           const commonlib1=new CommonPlaywrightLib(page)
+         await commonlib1.storageState('creds/logincredential.json')
+
+//await loginPage.login("SenthilSmartQAHub","demo")
 
 })
 

@@ -4,6 +4,15 @@ import { CredtCardAppPage } from "../../pages/CreditCard/CredtCardAppPage";
 import { TrackingApplicationStatus } from "../../pages/TrackingPage/TrackApplicationStatus";
 import { DebitCardAppPage } from "../../pages/DebitCard/DebitCardAppPage";
 import { CommonPlaywrightLib } from "../../Utils/CommonPlaywrightLib";
+import dotenv from 'dotenv'
+
+dotenv.config({path:'Urls/.env.sit'})
+
+test.beforeEach("url",async({page})=>
+{
+   await page.goto(process.env.siturl as string)
+})
+
 
 test('Apply credit Card',async({page})=>{
 
