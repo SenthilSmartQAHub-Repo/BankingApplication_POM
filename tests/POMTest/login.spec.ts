@@ -33,7 +33,9 @@ test("login to online banking",async({page})=>
          await commonlib1.storageState('creds/logincredential.json')
 
 //await loginPage.login("SenthilSmartQAHub","demo")
+  const homePage=new HomePage(page);
 
+ await homePage.logout()
 })
 
 

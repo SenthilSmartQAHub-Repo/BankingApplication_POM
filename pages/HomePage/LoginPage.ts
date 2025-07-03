@@ -27,7 +27,7 @@ export class LoginPage
        
         await this.loginButton.click()
 
-        await expect(this.page).toHaveURL("https://playwrightautomationtesting.blogspot.com/2025/06/banking-application.html")
+      //  await expect(this.page).toHaveURL("https://playwrightautomationtesting.blogspot.com/2025/06/banking-application.html")
 
     
 

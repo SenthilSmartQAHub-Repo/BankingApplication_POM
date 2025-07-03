@@ -1,14 +1,6 @@
-<testsuites id="" name="" tests="3" failures="0" skipped="1" errors="0" time="89.305398">
-<testsuite name="POMTest\BankApplication_TestRunner.spec.ts" timestamp="2025-07-02T03:08:41.489Z" hostname="chromium" tests="2" failures="0" skipped="0" time="65.301" errors="0">
-<testcase name="Apply credit Card" classname="POMTest\BankApplication_TestRunner.spec.ts" time="45.88">
-</testcase>
-<testcase name="Apply Debit Card" classname="POMTest\BankApplication_TestRunner.spec.ts" time="19.421">
-</testcase>
-</testsuite>
-<testsuite name="POMTest\login.spec.ts" timestamp="2025-07-02T03:08:41.489Z" hostname="chromium" tests="1" failures="0" skipped="1" time="80.962" errors="0">
-<testcase name="login to online banking" classname="POMTest\login.spec.ts" time="80.962">
-<skipped>
-</skipped>
+<testsuites id="" name="" tests="1" failures="0" skipped="0" errors="0" time="15.614981999999998">
+<testsuite name="POMTest\login.spec.ts" timestamp="2025-07-03T02:03:13.921Z" hostname="chromium" tests="1" failures="0" skipped="0" time="11.082" errors="0">
+<testcase name="login to online banking" classname="POMTest\login.spec.ts" time="11.082">
 </testcase>
 </testsuite>
 </testsuites>

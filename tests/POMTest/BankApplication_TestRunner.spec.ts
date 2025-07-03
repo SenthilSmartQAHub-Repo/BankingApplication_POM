@@ -30,7 +30,7 @@ test('Apply credit Card',async({page})=>{
    await trackingApplicationStatus.trackYourCreditCardApplicationStatus()
    await trackingApplicationStatus.verifyCreditCardApplicationStatus();
    await page.waitForTimeout(3000)
- 
+   await homePage.logout()
 
 })
 test('Apply Debit Card',async({page})=>{
@@ -47,6 +47,6 @@ test('Apply Debit Card',async({page})=>{
     await trackingApplicationStatus.trackYourDebitCardApplicationStatus()
     await trackingApplicationStatus.verifyDebitCardApplicationStatus();
     await page.waitForTimeout(3000)
-  
+   await homePage.logout()
  
  })
