@@ -25,14 +25,15 @@ export default defineConfig({
  // workers: process.env.CI ? 1 : undefined,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
 
-  reporter: [
-  ['html', { open: 'always' }], // Opens HTML report automatically
-  ['allure-playwright', { outputFolder: 'custom-allure-results' }], //  Allure advanced reporting
-  ['list'], // Minimal terminal output
-  ['json', { outputFile: 'report.json' }], //  JSON file with test details
-  ['junit', { outputFile: 'results.xml' }] //  JUnit XML for CI
-],
+//   reporter: [
+//   ['html', { open: 'always' }], // Opens HTML report automatically
+//   ['allure-playwright', { outputFolder: 'custom-allure-results' }], //  Allure advanced reporting
+//   ['list'], // Minimal terminal output
+//   ['json', { outputFile: 'report.json' }], //  JSON file with test details
+//   ['junit', { outputFile: 'results.xml' }] //  JUnit XML for CI
+// ],
 
+ reporter: [['line'], ['allure-playwright']],
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
     /* Base URL to use in actions like `await page.goto('/')`. */
@@ -40,7 +41,7 @@ export default defineConfig({
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'on-first-retry',
-   headless:false,
+   headless:true,
     storageState:'creds/logincredential.json'
   },
 
