@@ -69,9 +69,9 @@
     ],
     "shard": null,
     "updateSnapshots": "missing",
-    "updateSourceMethod": "patch",
+    "updateSourceMethod": "3way",
     "version": "1.53.1",
-    "workers": 2,
+    "workers": 1,
     "webServer": null
   },
   "suites": [
@@ -94,15 +94,15 @@
               "projectName": "chromium",
               "results": [
                 {
-                  "workerIndex": 0,
+                  "workerIndex": 2,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 11082,
+                  "duration": 8506,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2025-07-03T02:03:15.534Z",
+                  "startTime": "2025-07-03T02:15:17.241Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -120,8 +120,8 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2025-07-03T02:03:13.874Z",
-    "duration": 15614.981999999998,
+    "startTime": "2025-07-03T02:15:15.173Z",
+    "duration": 10982.339999999967,
     "expected": 1,
     "skipped": 0,
     "unexpected": 0,

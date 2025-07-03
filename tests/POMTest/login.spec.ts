@@ -12,8 +12,20 @@ dotenv.config({path:'Urls/.env.sit'})
 
 test("login to online banking",async({page})=>
 {
+
   const loginPage=new LoginPage(page);
    await page.goto(process.env.siturl as string)
+
+   
+   const homePage1=new HomePage(page); 
+
+   try{
+ await homePage1.logout()
+   }
+   catch(error)
+   {
+
+   }
    const commonlib=new CommonPlaywrightLib(page)
   const csvdata=await commonlib.readingValueFromCSV("testdata/Login.csv")
  
@@ -36,6 +48,8 @@ test("login to online banking",async({page})=>
   const homePage=new HomePage(page);
 
  await homePage.logout()
+
+
 })
 
 
