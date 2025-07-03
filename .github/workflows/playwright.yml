@@ -6,7 +6,7 @@ on:
   pull_request:
     branches: [ main, master ]
   schedule:
-    - cron: '*/5 * * * *' # Run every 5 minutes
+    - cron: '*/5 * * * *' # every 5 minutes
 
 jobs:
   test:
@@ -27,15 +27,16 @@ jobs:
       - name: Install Playwright Browsers
         run: npx playwright install --with-deps
 
-      - name: Run Playwright Tests with Allure Reporter
+      - name: Run Playwright Tests
         run: npx playwright test --reporter=line,allure-playwright
-        env:
-          CI: true
+
+      - name: Install Allure CLI
+        run: npm install -g allure-commandline --save-dev
 
       - name: Generate Allure Report
-        run: npx allure generate ./allure-results --clean -o ./allure-report
+        run: allure generate ./allure-results --clean -o ./allure-report
 
-      - name: Upload Allure Report Artifact
+      - name: Upload Allure Report
         uses: actions/upload-artifact@v4
         with:
           name: allure-report
