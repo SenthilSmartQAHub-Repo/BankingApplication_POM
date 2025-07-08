@@ -1,4 +1,4 @@
-import test from "@playwright/test";
+import test, { expect } from "@playwright/test";
 import { LoginPage } from "../../pages/HomePage/LoginPage";
 import { HomePage } from "../../pages/HomePage/HomePage";
 import { CredtCardAppPage } from "../../pages/CreditCard/CredtCardAppPage";
@@ -49,6 +49,15 @@ test("login to online banking",async({page})=>
 
  await homePage.logout()
 
+// await page.screenshot({path:'./screenshot/login.png',fullPage:true})
+
+// await expect(page).toHaveScreenshot('./screenshot/login.png',{fullPage:true})
+
+await page.waitForLoadState('networkidle')
+
+const s1=await page.screenshot({fullPage:true})
+
+await test.info().attach("login page",{body:s1,contentType:'image/png'})
 
 })
 
