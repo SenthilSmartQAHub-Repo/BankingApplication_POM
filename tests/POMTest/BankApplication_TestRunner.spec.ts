@@ -5,13 +5,13 @@ import { TrackingApplicationStatus } from "../../pages/TrackingPage/TrackApplica
 import { DebitCardAppPage } from "../../pages/DebitCard/DebitCardAppPage";
 import { CommonPlaywrightLib } from "../../Utils/CommonPlaywrightLib";
 import dotenv from 'dotenv'
+import  "../../Utils/setupHooks"
+//dotenv.config({path:'Urls/.env.sit'})
 
-dotenv.config({path:'Urls/.env.sit'})
-
-test.beforeEach("url",async({page})=>
-{
-   await page.goto(process.env.siturl as string)
-})
+// test.beforeEach("url",async({page})=>
+// {
+//    await page.goto(process.env.siturl as string)
+// })
 
 
 test('Apply credit Card',async({page})=>{
@@ -42,7 +42,7 @@ test('Apply Debit Card',async({page})=>{
     await homePage.navigateToHomePage()
     await homePage.navigateToTrackApplicationStatus();
       const commonutil=new CommonPlaywrightLib(page)
-    const page1= await commonutil.switchToWindow(1)  //
+    const page1= await commonutil.switchToWindow(1) 
     const trackingApplicationStatus=new TrackingApplicationStatus(page1)
     await trackingApplicationStatus.trackYourDebitCardApplicationStatus()
     await trackingApplicationStatus.verifyDebitCardApplicationStatus();
