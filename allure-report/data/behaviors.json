@@ -1,1 +1,1 @@
-{"uid":"b1a8273437954620fa374b796ffaacdd","name":"behaviors","children":[{"name":"login to online banking","uid":"614d1e0ebcd97631","parentUid":"b1a8273437954620fa374b796ffaacdd","status":"passed","time":{"start":1751940174696,"stop":1751940185094,"duration":10398},"flaky":false,"newFailed":false,"newPassed":false,"newBroken":false,"retriesCount":10,"retriesStatusChange":true,"parameters":["chromium"],"tags":[]}]}
+{"uid":"b1a8273437954620fa374b796ffaacdd","name":"behaviors","children":[]}
